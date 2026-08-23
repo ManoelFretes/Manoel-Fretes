@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manoel Fretes — Piracicaba e Região</title>
+<style>
+  :root{
+    --blue:#1F4E8C;
+    --blue-dark:#163A69;
+    --ink:#2B2E33;
+    --paper:#FFFFFF;
+    --paper-dim:#EEF1F4;
+    --muted:#6B7178;
+    --muted-on-blue:#CBD9EA;
+    --display:'Archivo Black', 'Arial Black', sans-serif;
+    --body:'Work Sans', 'Segoe UI', Arial, sans-serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001s !important; transition-duration:0.001s !important;}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.5;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  a{color:inherit;}
+
+  /* HERO */
+  .hero{
+    padding:64px 0 48px;
+    background:
+      repeating-linear-gradient(100deg, transparent 0 40px, rgba(255,255,255,0.07) 40px 42px),
+      var(--blue);
+    color:var(--paper);
+    border-bottom:6px solid var(--ink);
+    position:relative;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    background:rgba(255,255,255,0.14); color:var(--paper);
+    border:1px solid rgba(255,255,255,0.5);
+    padding:6px 12px; border-radius:2px;
+    margin-bottom:24px;
+  }
+  h1{
+    font-family:var(--display);
+    font-size:clamp(32px, 7vw, 50px);
+    line-height:1.05;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    margin:0 0 18px;
+  }
+  h1 span{
+    background:var(--paper); color:var(--blue);
+    padding:0 8px; display:inline-block; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+  .hero p{
+    font-size:17px; color:var(--muted-on-blue); max-width:48ch; margin:0 0 30px;
+  }
+  .cta-btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#25D366; color:#0b2013;
+    font-family:var(--body); font-weight:700; font-size:16px;
+    padding:16px 26px; border-radius:4px; text-decoration:none;
+    border:1px solid #1fb955;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .cta-btn:hover{transform:translateY(-1px); background:#22c15e;}
+  .cta-btn:focus-visible{outline:3px solid var(--ink); outline-offset:3px;}
+  .cta-sub{
+    display:block; margin-top:10px; font-family:var(--mono); font-size:12px; color:var(--muted-on-blue);
+  }
+  .trust-row{
+    display:flex; flex-wrap:wrap; gap:22px; margin-top:38px;
+    font-family:var(--mono); font-size:13px; color:var(--muted-on-blue);
+  }
+  .trust-row b{color:var(--paper); font-family:var(--body); font-weight:700; display:block; font-size:20px;}
+
+  /* SERVICES */
+  section{padding:52px 0;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--blue); margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--display); text-transform:uppercase; color:var(--ink);
+    font-size:clamp(22px,4vw,28px); margin:0 0 28px; max-width:22ch; line-height:1.15;
+  }
+  .services{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  }
+  @media (max-width:520px){ .services{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--paper-dim);
+    border:1px solid rgba(0,0,0,0.08);
+    border-left:4px solid var(--blue);
+    padding:18px 18px 16px;
+    border-radius:2px;
+  }
+  .service-card .tag{
+    font-family:var(--mono); font-size:11px; color:var(--blue-dark); letter-spacing:0.06em;
+    text-transform:uppercase; margin-bottom:6px; display:block;
+  }
+  .service-card h3{font-size:17px; margin:0 0 6px; font-family:var(--body); font-weight:700; color:var(--ink);}
+  .service-card p{font-size:14px; color:var(--muted); margin:0;}
+
+  /* ROUTE / COMO FUNCIONA — signature element */
+  .route-section{background:var(--paper-dim);}
+  .route{
+    position:relative;
+    padding-left:34px;
+    margin-top:20px;
+  }
+  .route::before{
+    content:"";
+    position:absolute; left:9px; top:6px; bottom:6px; width:0;
+    border-left:3px dashed var(--blue);
+  }
+  .stop{
+    position:relative;
+    padding-bottom:34px;
+  }
+  .stop:last-child{padding-bottom:0;}
+  .stop::before{
+    content:"";
+    position:absolute; left:-34px; top:2px;
+    width:20px; height:20px; border-radius:50%;
+    background:var(--blue);
+    border:4px solid var(--paper-dim);
+    box-shadow:0 0 0 2px var(--blue);
+  }
+  .stop-km{
+    font-family:var(--mono); font-size:12px; color:var(--blue-dark); margin-bottom:4px; display:block;
+  }
+  .stop h3{margin:0 0 6px; font-size:17px; font-family:var(--body); font-weight:700; color:var(--ink);}
+  .stop p{margin:0; color:var(--muted); font-size:14.5px;}
+
+  /* DIFERENCIAIS */
+  .diff-grid{display:flex; flex-direction:column; gap:0; border-top:1px solid rgba(0,0,0,0.1);}
+  .diff-row{
+    display:flex; gap:16px; padding:18px 0; border-bottom:1px solid rgba(0,0,0,0.1);
+  }
+  .diff-icon{
+    font-family:var(--mono); color:var(--blue); font-size:14px; padding-top:2px; flex-shrink:0; width:26px;
+  }
+  .diff-row b{display:block; font-size:15.5px; margin-bottom:3px; color:var(--ink);}
+  .diff-row span{font-size:14px; color:var(--muted);}
+
+  /* AREA */
+  .area-box{
+    background:var(--ink); color:var(--paper);
+    border-radius:3px; padding:22px 24px;
+    font-family:var(--mono); font-size:14px;
+  }
+  .area-box b{font-family:var(--body); font-size:16px; display:block; margin-bottom:8px; color:var(--paper);}
+
+  /* FINAL CTA */
+  .final{
+    text-align:center; padding:60px 24px 72px;
+    background:repeating-linear-gradient(100deg, transparent 0 40px, rgba(255,255,255,0.07) 40px 42px), var(--blue);
+    color:var(--paper);
+    border-top:6px solid var(--ink);
+  }
+  .final h2{margin:0 auto 14px; max-width:20ch; color:var(--paper);}
+  .final p{color:var(--muted-on-blue); max-width:42ch; margin:0 auto 28px;}
+
+  footer{
+    text-align:center; font-family:var(--mono); font-size:12px; color:var(--muted); opacity:0.7;
+    padding:24px 0 36px; background:var(--paper);
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero wrap">
+    <div class="badge">📍 Piracicaba e região</div>
+    <h1>Sua mudança sai <span>no horário combinado</span>, sem susto no preço.</h1>
+    <p>Fretes, carretos e mudanças residenciais e comerciais. Orçamento pelo WhatsApp em poucos minutos, equipe pontual, seus móveis protegidos do início ao fim.</p>
+    <a href="https://wa.me/5519981763956?text=Oi!%20Quero%20um%20or%C3%A7amento%20de%20frete%2Fmudan%C3%A7a" class="cta-btn">
+      📲 Pedir orçamento no WhatsApp
+    </a>
+    <span class="cta-sub">Resposta rápida · sem compromisso</span>
+
+    <div class="trust-row">
+      <div><b>Piracicaba</b>e região atendida</div>
+      <div><b>Hoje</b>orçamento na hora</div>
+      <div><b>Fixo</b>preço combinado antes, sem surpresa</div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="eyebrow">O que carregamos</div>
+    <h2>Do sofá da sala à mudança do escritório inteiro</h2>
+    <div class="services">
+      <div class="service-card">
+        <span class="tag">Residencial</span>
+        <h3>Mudança de casa ou apartamento</h3>
+        <p>Do quarto de solteiro à casa cheia — desmontamos, embalamos e remontamos o que for preciso.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag">Comercial</span>
+        <h3>Mudança de escritório ou loja</h3>
+        <p>Organizamos o transporte pra não parar seu funcionamento por mais tempo que o necessário.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag">Avulso</span>
+        <h3>Carretos e fretes rápidos</h3>
+        <p>Comprou móvel novo, vendeu o velho, precisa levar algo de um ponto a outro — resolvemos no mesmo dia.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag">Especial</span>
+        <h3>Içamento de móveis grandes</h3>
+        <p>Sofá ou guarda-roupa que não entra pela escada? Fazemos o içamento com segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-section">
+    <div class="wrap">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Do primeiro contato até o último móvel no lugar</h2>
+      <div class="route">
+        <div class="stop">
+          <span class="stop-km">PARADA 1</span>
+          <h3>Você manda os detalhes no WhatsApp</h3>
+          <p>Endereço de saída, de chegada, e o que precisa ser transportado.</p>
+        </div>
+        <div class="stop">
+          <span class="stop-km">PARADA 2</span>
+          <h3>Você recebe o valor fechado</h3>
+          <p>Sem pegadinha depois — o preço combinado é o preço cobrado.</p>
+        </div>
+        <div class="stop">
+          <span class="stop-km">PARADA 3</span>
+          <h3>Equipe chega no horário marcado</h3>
+          <p>Com o material certo pra proteger o que for frágil ou grande.</p>
+        </div>
+        <div class="stop">
+          <span class="stop-km">CHEGADA</span>
+          <h3>Tudo entregue e no lugar</h3>
+          <p>Você confere e a gente só sai depois que estiver tudo certo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">Por que fechar com a gente</div>
+    <h2>O que muda numa mudança bem feita</h2>
+    <div class="diff-grid">
+      <div class="diff-row">
+        <span class="diff-icon">→</span>
+        <div><b>Pontualidade de verdade</b><span>O horário combinado é o horário que a equipe chega — sem "já estamos chegando" por duas horas.</span></div>
+      </div>
+      <div class="diff-row">
+        <span class="diff-icon">→</span>
+        <div><b>Móveis embalados e protegidos</b><span>Manta, plástico bolha e cuidado com o que é frágil, sem custo escondido por isso.</span></div>
+      </div>
+      <div class="diff-row">
+        <span class="diff-icon">→</span>
+        <div><b>Preço combinado antes de começar</b><span>Você sabe exatamente quanto vai pagar antes do caminhão sair de lá.</span></div>
+      </div>
+      <div class="diff-row">
+        <span class="diff-icon">→</span>
+        <div><b>Atendimento no mesmo dia</b><span>Muitos fretes avulsos saem no mesmo dia que você chama no WhatsApp.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="eyebrow">Área de atendimento</div>
+    <div class="area-box">
+      <b>Piracicaba e região</b>
+      Atendemos toda a cidade e bairros próximos. Mudança pra fora da região? Manda a distância no WhatsApp que já respondemos com o valor.
+    </div>
+  </section>
+
+  <div class="final">
+    <h2>Bora marcar sua mudança?</h2>
+    <p>Manda a data, o endereço e o que precisa ser transportado — o orçamento volta rápido, sem enrolação.</p>
+    <a href="https://wa.me/5519981763956?text=Oi!%20Quero%20um%20or%C3%A7amento%20de%20frete%2Fmudan%C3%A7a" class="cta-btn">
+      📲 Falar no WhatsApp agora
+    </a>
+  </div>
+
+  <footer>Manoel Fretes · Piracicaba e Região</footer>
+
+</body>
+</html>
